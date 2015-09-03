@@ -110,9 +110,9 @@ for($frame = 0; $frame <= 2; $frame++)
 {
     open FILE, "> $allFiles[$frame]" or die "Error! Cannot access output file '". $allFiles[$frame] . "': ".$!;
 
-    $head = "nuc\t" . join("\t",sort(keys(%kmerScores))) . "\tnone/start/stop" . "\n";
+    $head = "nuc\tk" . join("\tk",sort(keys(%kmerScores))) . "\tnone/start/stop" . "\n";
     print FILE $head;
-    
+
     ## The scanning sequence loop
     for($nuc = $frame; $nuc <= ((scalar @seqTab)-$sizeMax); $nuc++)
     {
@@ -121,7 +121,7 @@ for($frame = 0; $frame <= 2; $frame++)
 	## Size loop
 	foreach $ksize (sort(keys(%kmerScores)))
 	{
-	    
+
 	    if($ksize == 2)
 	    {
 		$tmp = join("",@seqTab[$nuc..($nuc+($ksize-1))]);
@@ -146,7 +146,7 @@ for($frame = 0; $frame <= 2; $frame++)
 	    {
 		$line = $line . "\t1";
 	    }
-	    elsif($tmp=~m/(TGA)(TAG)(TAA)/i)
+	    elsif($tmp=~m/TGA|TAG|TAA]/i)
 	    {
 		$line = $line . "\t2";
 	    }
