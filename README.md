@@ -5,4 +5,5 @@ vizKmer.pl -i \<INPUT FILE\> -k \<FILE WITH SCORE LOCATION\> -o \<OUTPUT NAME\>
 
 # Example
 cd ./test/
+
 ../script/vizKmer.pl -i ENST00000053867.fa -k locKmerScore_notk12.txt -o ENST00000053867
