@@ -1,0 +1,4 @@
+# Do not check files with a ~ at the end, temporary save by emacs
+*~
+kmerOrder/**
+test/kmerScores/**

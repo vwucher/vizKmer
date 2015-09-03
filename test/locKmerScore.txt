@@ -1,0 +1,6 @@
+# Don't use '~' for '/home/username' or '/Users/username'
+/Users/valentin/travail/programme/vizKmer/test/kmerScores/human_nb5000_k1236912.kmerScoreValues_size2.txt
+/Users/valentin/travail/programme/vizKmer/test/kmerScores/human_nb5000_k1236912.kmerScoreValues_size3.txt
+/Users/valentin/travail/programme/vizKmer/test/kmerScores/human_nb5000_k1236912.kmerScoreValues_size6.txt
+/Users/valentin/travail/programme/vizKmer/test/kmerScores/human_nb5000_k1236912.kmerScoreValues_size9.txt
+/Users/valentin/travail/programme/vizKmer/test/kmerScores/human_nb5000_k1236912.kmerScoreValues_size12.txt
