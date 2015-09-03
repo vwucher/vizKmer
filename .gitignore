@@ -2,4 +2,4 @@
 *~
 kmerOrder/*.txt
 test/kmerScores/*.txt
-test/*_frame*.txt
+test/*.txt
