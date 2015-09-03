@@ -110,7 +110,7 @@ for($frame = 0; $frame <= 2; $frame++)
 {
     open FILE, "> $allFiles[$frame]" or die "Error! Cannot access output file '". $allFiles[$frame] . "': ".$!;
 
-    $head = "nuc\t" . join("\t",sort(keys(%kmerScores))) . "\n";
+    $head = "nuc\t" . join("\t",sort(keys(%kmerScores))) . "\tnone/start/stop" . "\n";
     print FILE $head;
     
     ## The scanning sequence loop
@@ -118,6 +118,7 @@ for($frame = 0; $frame <= 2; $frame++)
     {
 	$line = ($nuc+1);
 
+	## Size loop
 	foreach $ksize (sort(keys(%kmerScores)))
 	{
 	    
@@ -136,6 +137,29 @@ for($frame = 0; $frame <= 2; $frame++)
 		$line = $line . "\tNA";
 	    }
 	}
+
+	## Test for start/stop codon
+	if(($nuc-$frame)%3 == 0)
+	{
+	    $tmp = join("",@seqTab[$nuc..($nuc+2)]);
+	    if($tmp=~m/ATG/i)
+	    {
+		$line = $line . "\t1";
+	    }
+	    elsif($tmp=~m/(TGA)(TAG)(TAA)/i)
+	    {
+		$line = $line . "\t2";
+	    }
+	    else
+	    {
+		$line = $line . "\t0";
+	    }
+	}
+	else
+	{
+	    $line = $line . "\t0";
+	}
+
 	print FILE $line, "\n";
     }
     ## The end of the scanning sequence loop
