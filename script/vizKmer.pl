@@ -53,8 +53,9 @@ while(<FILE>)
 }
 close FILE;
 
+# Put the sequence in upper case and split it
+$seq = uc $seq
 @seqTab = split("", $seq);
-#print @seqTab[0..3], "\n";
 
 
 ## Read the kmer files
