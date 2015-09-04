@@ -15,11 +15,13 @@ output <- args[2]
 
 data      <- read.table(file=input, header=TRUE, sep="\t")
 data.melt <- melt(data, id=colnames(data)[1])
+data.melt <- data.melt[!is.na(data.melt$value),]
 
-line  <- geom_line(aes())
-face  <- face  <- facet_wrap(~variable, ncol=1, scale="free")
+step  <- geom_step(data=subset(data.melt,variable=="none.start.stop"), alpha=0.5, size=2)
+face  <- facet_wrap(~variable, ncol=1, scale="free")
 colo  <- scale_fill_brewer(palette="Set1")
-smoot <- stat_smooth(method = "loess", se=FALSE, span=0.1)
-graph <- ggplot(data=data.melt[!is.na(data.melt$value),], aes(x=nuc, y=value, colour=variable))  + colo + face + smoot
+smoot <- stat_smooth(data=subset(data.melt,variable!="none.start.stop"), method = "loess", se=FALSE, span=0.05)
+addl  <- geom_hline(data=subset(data.melt,variable!="none.start.stop"), yintercept=0.5)
+graph <- ggplot(data=data.melt, aes(x=nuc, y=value, colour=variable)) + colo + face + smoot + step + addl
 
 ggsave(plot=graph, filename=output, scale=2, height=5, width=10, dpi=1000)
