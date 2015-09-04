@@ -1,0 +1,5 @@
+# Don't use '~' for '/home/username' or '/Users/username'
+/Users/valentin/travail/programme/vizKmer/test/kmerScores/10k_learn.kmerScoreValues_size2.txt
+/Users/valentin/travail/programme/vizKmer/test/kmerScores/10k_learn.kmerScoreValues_size3.txt
+/Users/valentin/travail/programme/vizKmer/test/kmerScores/10k_learn.kmerScoreValues_size6.txt
+/Users/valentin/travail/programme/vizKmer/test/kmerScores/10k_learn.kmerScoreValues_size9.txt
