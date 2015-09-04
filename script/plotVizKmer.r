@@ -18,7 +18,7 @@ data.melt <- melt(data, id=colnames(data)[1])
 data.melt <- data.melt[!is.na(data.melt$value),]
 
 step  <- geom_step(data=subset(data.melt,variable=="none.start.stop"), alpha=0.5, size=2)
-face  <- facet_wrap(~variable, ncol=1, scale="free")
+face  <- facet_wrap(~variable, ncol=1, scale="free_y")
 colo  <- scale_fill_brewer(palette="Set1")
 smoot <- stat_smooth(data=subset(data.melt,variable!="none.start.stop"), method = "loess", se=FALSE, span=0.05)
 addl  <- geom_hline(data=subset(data.melt,variable!="none.start.stop"), yintercept=0.5)
