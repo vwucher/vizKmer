@@ -148,16 +148,16 @@ for($frame = 0; $frame <= 2; $frame++)
 	    }
 	    elsif($tmp=~m/TGA|TAG|TAA]/i)
 	    {
-		$line = $line . "\t2";
+		$line = $line . "\t0";
 	    }
 	    else
 	    {
-		$line = $line . "\t0";
+		$line = $line . "\tNA";
 	    }
 	}
 	else
 	{
-	    $line = $line . "\t0";
+	    $line = $line . "\tNA";
 	}
 
 	print FILE $line, "\n";
